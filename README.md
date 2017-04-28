@@ -1,3 +1,5 @@
+# SISANE HAS BEEN DEPRECATED. DO NOT USE.
+
 # sisane-server
 
   * sisane-server provides a template to easy build small and medium AJAX projects with the following technologies:
