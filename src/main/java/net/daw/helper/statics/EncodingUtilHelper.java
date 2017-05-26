@@ -100,9 +100,23 @@ public class EncodingUtilHelper {
     }
 
     public static String stringifyAndQuotate(Date s) {
-        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm");
-        String value = format.format(s);
-        return "\"" + value + "\"";
+        if (s == null) {
+            return "null";
+        } else {
+            SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+            String value = format.format(s);
+            return "\"" + value + "\"";
+        }
+    }
+
+    public static String stringifyDate(Date s) {
+        if (s == null) {
+            return "null";
+        } else {
+            SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+            String value = format.format(s);
+            return value;
+        }
     }
 
     /**
