@@ -46,10 +46,14 @@ public class UsuarioBean implements GenericBean {
     private String apellidos;
     @Expose
     private String login;
-    @Expose(serialize = false)
+//    @Expose(serialize = false)
     private String password;
     @Expose
-    private String telefono;
+    private String puesto;
+    @Expose
+    private String mac_tlfn;
+    @Expose
+    private String num_tlfn;
     @Expose(serialize = false)
     private Integer id_tipousuario = 0;
     @Expose(deserialize = false)
@@ -102,12 +106,28 @@ public class UsuarioBean implements GenericBean {
         this.password = password;
     }
 
-    public String getTelefono() {
-        return telefono;
+    public String getPuesto() {
+        return puesto;
+    }
+    
+    public void setPuesto(String puesto) {
+        this.puesto = puesto;
+    }
+    
+    public String getMac_tlfn() {
+        return mac_tlfn;
+    }
+    
+    public void setMac_tlfn(String mac_tlfn) {
+        this.mac_tlfn = mac_tlfn;
+    }
+    
+    public String getTlfn() {
+        return num_tlfn;
     }
 
-    public void setTelefono(String telefono) {
-        this.telefono = telefono;
+    public void setTlfn(String num_tlfn) {
+        this.num_tlfn = num_tlfn;
     }
 
     public Integer getId_tipousuario() {
@@ -134,7 +154,9 @@ public class UsuarioBean implements GenericBean {
         strColumns += "apellidos,";
         strColumns += "login,";
         strColumns += "password,";
-        strColumns += "telefono,";
+        strColumns += "puesto,";
+        strColumns += "mac_tlfn,";
+        strColumns += "num_tlfn,";
         strColumns += "id_tipousuario";
         return strColumns;
     }
@@ -147,7 +169,9 @@ public class UsuarioBean implements GenericBean {
         strColumns += EncodingUtilHelper.quotate(apellidos) + ",";
         strColumns += EncodingUtilHelper.quotate(login) + ",";
         strColumns += EncodingUtilHelper.quotate(password) + ",";
-        strColumns += EncodingUtilHelper.quotate(telefono) + ",";
+        strColumns += EncodingUtilHelper.quotate(puesto) + ",";
+        strColumns += EncodingUtilHelper.quotate(mac_tlfn) + ",";
+        strColumns += EncodingUtilHelper.quotate(num_tlfn) + ",";
         strColumns += id_tipousuario;
         return strColumns;
     }
@@ -159,7 +183,9 @@ public class UsuarioBean implements GenericBean {
         strPairs += "primerapellido=" + EncodingUtilHelper.quotate(apellidos) + ",";
         strPairs += "login=" + EncodingUtilHelper.quotate(login) + ",";
         strPairs += "password=" + EncodingUtilHelper.quotate(password) + ",";
-        strPairs += "telefono=" + EncodingUtilHelper.quotate(telefono) + ",";
+        strPairs += "puesto=" + EncodingUtilHelper.quotate(puesto) + ",";
+        strPairs += "mac_tlfn=" + EncodingUtilHelper.quotate(mac_tlfn) + ",";
+        strPairs += "num_tlfn=" + EncodingUtilHelper.quotate(num_tlfn) + ",";
         strPairs += "id_tipousuario=" + id_tipousuario;
         return strPairs;
     }
@@ -171,7 +197,9 @@ public class UsuarioBean implements GenericBean {
         this.setApellidos(oResultSet.getString("apellidos"));
         this.setLogin(oResultSet.getString("login"));
         this.setPassword(oResultSet.getString("password"));
-        this.setTelefono(oResultSet.getString("telefono"));
+        this.setPuesto(oResultSet.getString("puesto"));
+        this.setMac_tlfn(oResultSet.getString("mac_tlfn"));
+        this.setTlfn(oResultSet.getString("num_tlfn"));
 
         if (expand > 0) {
             TipousuarioBean oTipousuarioBean = new TipousuarioBean();
